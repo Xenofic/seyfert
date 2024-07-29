@@ -217,6 +217,10 @@ export interface GuildRoutes {
 				(
 					id: string,
 				): {
+					get(args?: RestArguments<ProxyRequestMethod.Get>): Promise<RESTGetAPIGuildRolesResult>;
+					post(
+						args: RestArguments<ProxyRequestMethod.Post, RESTPostAPIGuildRoleJSONBody>,
+					): Promise<RESTPostAPIGuildRoleResult>;
 					patch(
 						args: RestArguments<ProxyRequestMethod.Patch, RESTPatchAPIGuildRoleJSONBody>,
 					): Promise<RESTPatchAPIGuildRoleResult>;

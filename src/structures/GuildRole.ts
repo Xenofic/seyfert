@@ -54,6 +54,7 @@ export class GuildRole extends DiscordBase {
 			delete: (roleId: string, reason?: string) => ctx.client.roles.delete(ctx.guildId, roleId, reason),
 			editPositions: (body: RESTPatchAPIGuildRolePositionsJSONBody) =>
 				ctx.client.roles.editPositions(ctx.guildId, body),
+			fetch: (roleId: string, force = false) => ctx.client.roles.fetch(ctx.guildId, roleId, force),
 		};
 	}
 }
