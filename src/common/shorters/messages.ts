@@ -10,6 +10,7 @@ import type { MessageCreateBodyRequest, MessageUpdateBodyRequest } from '../type
 import { BaseShorter } from './base';
 import type { ValidAnswerId } from '../../api/Routes/channels';
 import { Transformers } from '../../client/transformers';
+import type { RESTGetAPIChannelMessagesQuery } from 'discord-api-types/v10';
 
 export class MessageShorter extends BaseShorter {
 	async write(channelId: string, { files, ...body }: MessageCreateBodyRequest) {
@@ -85,6 +86,13 @@ export class MessageShorter extends BaseShorter {
 			.channels(channelId)
 			.messages['bulk-delete'].post({ body: { messages }, reason })
 			.then(() => this.client.cache.messages?.removeIfNI('GuildMessages', messages, channelId));
+	}
+
+	list(channelId: string, query: RESTGetAPIChannelMessagesQuery = {}) {
+		return this.client.proxy
+			.channels(channelId)
+			.messages.get({ query })
+			.then(messages => messages.map(message => Transformers.Message(this.client, message)));
 	}
 
 	thread(

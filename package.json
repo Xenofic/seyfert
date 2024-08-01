@@ -5,7 +5,10 @@
 	"main": "./lib/index.js",
 	"module": "./lib/index.js",
 	"types": "./lib/index.d.ts",
-	"files": ["lib/**", "deps/**"],
+	"files": [
+		"lib/**",
+		"deps/**"
+	],
 	"scripts": {
 		"build": "npm run clean && tsc --outDir ./lib",
 		"prepublishOnly": "npm run build",
@@ -19,11 +22,15 @@
 	"author": "MARCROCK22",
 	"license": "Apache-2.0",
 	"dependencies": {
+		"discord-api-types": "^0.37.93",
 		"magic-bytes.js": "^1.10.0",
+		"ts-mixer": "^6.0.4",
 		"ws": "^8.18.0"
 	},
 	"lint-staged": {
-		"*.ts": ["biome check --write"]
+		"*.ts": [
+			"biome check --write"
+		]
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
@@ -34,7 +41,7 @@
 		"husky": "^9.1.1",
 		"lint-staged": "^15.2.7",
 		"rimraf": "5.0.9",
-		"typescript": "^5.5.3"
+		"typescript": "5.4.5"
 	},
 	"optionalDependencies": {
 		"chokidar": "^3.6.0",
@@ -50,7 +57,13 @@
 	"bugs": {
 		"url": "https://github.com/tiramisulabs/seyfert"
 	},
-	"keywords": ["api", "discord", "bots", "typescript", "botdev"],
+	"keywords": [
+		"api",
+		"discord",
+		"bots",
+		"typescript",
+		"botdev"
+	],
 	"publishConfig": {
 		"access": "public"
 	},

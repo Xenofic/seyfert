@@ -1,13 +1,9 @@
-import type {
-	APIRole,
-	RESTPatchAPIGuildRoleJSONBody,
-	RESTPatchAPIGuildRolePositionsJSONBody,
-	RESTPostAPIGuildRoleJSONBody,
-} from 'discord-api-types/v10';
+import type { APIRole, RESTPatchAPIGuildRolePositionsJSONBody } from 'discord-api-types/v10';
 import type { UsingClient } from '../commands';
 import { Formatter, type ImageOptions, type MethodContext, type ObjectToLower } from '../common';
 import { DiscordBase } from './extra/DiscordBase';
 import { PermissionsBitField } from './extra/Permissions';
+import type { RESTPatchAPIGuildRoleJSONBody, RESTPostAPIGuildRoleJSONBody } from '../types';
 
 export interface GuildRole extends DiscordBase, ObjectToLower<Omit<APIRole, 'permissions'>> {}
 
@@ -25,10 +21,6 @@ export class GuildRole extends DiscordBase {
 	guild(force = false) {
 		if (!this.guildId) return;
 		return this.client.guilds.fetch(this.guildId, force);
-	}
-
-	edit(body: RESTPatchAPIGuildRoleJSONBody, reason?: string) {
-		return this.client.roles.create(this.guildId, body, reason);
 	}
 
 	delete(reason?: string) {

@@ -17,10 +17,8 @@ import {
 	type APITextChannel,
 	type APIThreadChannel,
 	type RESTGetAPIChannelMessageReactionUsersQuery,
-	type RESTPatchAPIChannelJSONBody,
 	type RESTPatchAPIGuildChannelPositionsJSONBody,
 	type RESTPostAPIChannelWebhookJSONBody,
-	type RESTPostAPIGuildChannelJSONBody,
 	type RESTPostAPIGuildForumThreadsJSONBody,
 	type SortOrderType,
 	type ThreadAutoArchiveDuration,
@@ -59,6 +57,7 @@ import {
 	Transformers,
 	type VoiceChannelStructure,
 } from '../client/transformers';
+import type { RESTPatchAPIChannelJSONBody, RESTPostAPIGuildChannelJSONBody } from '../types';
 
 export class BaseChannel<T extends ChannelType> extends DiscordBase<APIChannelBase<ChannelType>> {
 	declare type: T;
