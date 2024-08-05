@@ -1,3 +1,4 @@
+import type { Permissions } from 'discord-api-types/globals';
 import type { Snowflake, ChannelType, VideoQualityMode, OverwriteType } from '..';
 
 import type {
