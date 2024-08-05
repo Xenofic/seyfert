@@ -37,6 +37,10 @@ export class GuildRole extends DiscordBase {
 		return this.rest.cdn['role-icons'](this.id).get(this.icon, options);
 	}
 
+	edit(body: RESTPatchAPIGuildRoleJSONBody, reason?: string) {
+		return this.client.roles.edit(this.guildId, this.id, body, reason);
+	}
+
 	static methods(ctx: MethodContext<{ guildId: string }>) {
 		return {
 			create: (body: RESTPostAPIGuildRoleJSONBody) => ctx.client.roles.create(ctx.guildId, body),
